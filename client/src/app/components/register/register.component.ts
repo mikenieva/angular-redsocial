@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit{
                     this.status = 'success';
                     form.reset();
                  } else {
-                     this.status = 'error';
+                     this.status = 'El usuario ya existe';
                  }
             },
             error => {

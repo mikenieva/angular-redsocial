@@ -30,8 +30,8 @@
                         </p>
                     </div>
                 <!-- Seguir / Dejar de seguir -->
-                    <div class="pull-right">
-                        <button class="btn btn-success" *ngIf="follows.indexOf(user._id) < 0">
+                    <div class="pull-right" *ngIf="user._id != identity._id">
+                        <button class="btn btn-success" *ngIf="follows.indexOf(user._id) < 0" (click)="followUser(user._id)">
                             <span class="glyphicon glyphicon-plus-sign"></span>
                             Seguir
                         </button>
@@ -40,6 +40,7 @@
                         *ngIf="follows.indexOf(user._id) >=0" 
                         (mouseover)="mouseEnter(user._id)" 
                         (mouseleave)="mouseLeave(user._id)"
+                        (click)="unfollowUser(user._id)"
                         [class.btn-danger]="user._id ==followUserOver">
                                 <span *ngIf="user._id ==followUserOver; else following">
                                     <span class="glyphicon glyphicon-minus-sign"></span>
@@ -66,4 +67,11 @@
 
     </div>
 
+    
+
+</div>
+
+<!-- Sidebar -->
+<div class="clearfix">
+    <sidebar></sidebar>
 </div>
